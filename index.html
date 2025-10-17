@@ -4,174 +4,137 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Niche Modded Games</title>
+  <link rel="icon" href="assets/NicheModdedGamesIcon.png" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #0e0020 0%, #100033 50%, #090014 100%);
-      color: #fff;
       margin: 0;
-      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #5326e8, #23a0ff);
+      color: white;
       text-align: center;
       overflow-x: hidden;
     }
 
-    header img {
-      width: 260px;
-      margin: 40px auto 10px auto;
-      display: block;
-      animation: fadeDown 1.5s ease;
+    header {
+      padding: 40px 20px 10px;
     }
 
-    h1 {
-      font-weight: 600;
-      font-size: 2.3rem;
-      letter-spacing: 1px;
-      margin-bottom: 40px;
-      background: linear-gradient(90deg, #38b6ff, #9b5cff, #f65cff);
+    header img {
+      width: 220px;
+      max-width: 90%;
+    }
+
+    .group-info {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 15px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .group-info h2 {
+      margin: 0;
+      font-size: 24px;
+      background: linear-gradient(90deg, #ff8cff, #7afcff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: fadeDown 2s ease;
     }
 
-    .games {
+    .group-info p {
+      margin: 5px 0 0;
+      font-size: 18px;
+    }
+
+    .games-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       gap: 30px;
-      padding: 20px;
-      animation: fadeUp 1.5s ease;
+      margin-top: 40px;
+      padding-bottom: 80px;
     }
 
     .game-card {
-      background: linear-gradient(145deg, rgba(30, 0, 60, 0.9), rgba(15, 0, 35, 0.95));
-      border: 2px solid rgba(120, 50, 255, 0.4);
-      border-radius: 18px;
-      width: 300px;
-      padding: 25px;
-      box-shadow: 0 0 20px rgba(100, 0, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.15);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s, background 0.3s;
     }
 
     .game-card:hover {
-      transform: scale(1.06);
-      box-shadow: 0 0 25px rgba(150, 0, 255, 0.6), inset 0 0 12px rgba(0, 255, 255, 0.3);
+      transform: scale(1.03);
+      background: rgba(255,255,255,0.25);
     }
 
-    .game-card h2 {
-      background: linear-gradient(90deg, #38b6ff, #9b5cff, #f65cff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 1.4rem;
-      margin-bottom: 10px;
+    .game-card h3 {
+      margin: 0;
+      font-size: 26px;
+      color: #ffffff;
     }
 
     .game-card p {
-      margin: 6px 0;
-      font-size: 0.95rem;
-      color: #c9c9c9;
+      font-size: 18px;
+      margin: 10px 0;
+      color: #e0e0e0;
     }
 
     .game-card a {
       display: inline-block;
-      margin-top: 12px;
-      background: linear-gradient(90deg, #38b6ff, #9b5cff);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-weight: 600;
+      margin-top: 8px;
       text-decoration: none;
-      box-shadow: 0 0 15px rgba(100, 0, 255, 0.4);
-      transition: all 0.3s ease;
+      color: #fff;
+      background: linear-gradient(90deg, #ff8cff, #7afcff);
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: 0.3s;
     }
 
     .game-card a:hover {
-      background: linear-gradient(90deg, #9b5cff, #38b6ff);
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(150, 50, 255, 0.8);
-    }
-
-    footer {
-      margin: 60px 0 20px 0;
-      color: #999;
-      font-size: 0.85rem;
-      letter-spacing: 0.5px;
-    }
-
-    @keyframes fadeUp {
-      from {opacity: 0; transform: translateY(25px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeDown {
-      from {opacity: 0; transform: translateY(-25px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    /* Small neon decorative squares */
-    .decor {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 3px;
-      opacity: 0.6;
-      animation: float 6s infinite ease-in-out;
-    }
-
-    .decor.yellow { background: #fefb52; top: 15%; left: 12%; animation-delay: 0s; }
-    .decor.green { background: #57ff87; top: 25%; right: 18%; animation-delay: 1s; }
-    .decor.pink { background: #ff59c7; bottom: 20%; left: 10%; animation-delay: 2s; }
-    .decor.blue { background: #4deaff; bottom: 15%; right: 15%; animation-delay: 3s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(20deg); }
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <div class="decor yellow"></div>
-  <div class="decor green"></div>
-  <div class="decor pink"></div>
-  <div class="decor blue"></div>
-
   <header>
-    <img src="assets/NicheModdedGamesIcon.png" alt="Logo">
-    <h1>Niche Modded Games</h1>
+    <img src="assets/NicheModdedGamesIcon.png" alt="Niche Modded Games Logo">
+    <div class="group-info" id="group-info">
+      <h2>Niche Modded Games Group</h2>
+      <p id="group-members">Members: 0 (manually set in config.json)</p>
+      <a href="https://www.roblox.com/communities/143008222/Niche-Modded-Games#!/about" target="_blank">Visit Group</a>
+    </div>
   </header>
 
-  <section class="games" id="games"></section>
-
-  <footer>
-    <p>© 2025 Niche Modded Games • Created by Aydin</p>
-  </footer>
+  <div class="games-container" id="games-container">
+    <!-- Loaded dynamically -->
+  </div>
 
   <script>
-    async function loadGames() {
-      try {
-        const response = await fetch('config.json');
-        const data = await response.json();
-        const container = document.getElementById('games');
+    fetch('config.json')
+      .then(response => response.json())
+      .then(data => {
+        // Update group info
+        document.getElementById("group-members").textContent = 
+          "Members: " + data.GroupMembers + " (manual)";
 
+        // Load games
+        const gamesContainer = document.getElementById("games-container");
         data.Games.forEach(game => {
-          const card = document.createElement('div');
-          card.className = 'game-card';
+          const card = document.createElement("div");
+          card.className = "game-card";
           card.innerHTML = `
-            <h2>${game.Name}</h2>
-            <p>🟢 Active Players: ${game.ActivePlayers}</p>
-            <p>👁️ Total Visits: ${game.Visits.toLocaleString()}</p>
-            <a href="${game.Link}" target="_blank">Play Now →</a>
+            <h3>${game.Name}</h3>
+            <p>Total Visits: ${game.Visits}</p>
+            <p>Active Players: ${game.Active}</p>
+            <a href="${game.Link}" target="_blank">Play Now</a>
           `;
-          container.appendChild(card);
+          gamesContainer.appendChild(card);
         });
-      } catch (err) {
-        console.error('Error loading config.json:', err);
-      }
-    }
-
-    loadGames();
+      })
+      .catch(err => console.error("Error loading config.json", err));
   </script>
 </body>
 </html>
