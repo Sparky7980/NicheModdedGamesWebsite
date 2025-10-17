@@ -172,7 +172,7 @@
           const card = document.createElement('div');
           card.className = 'game-card';
           card.innerHTML = `
-            <img src="${game.Thumbnail}" alt="${game.Name} Thumbnail" class="game-thumbnail">
+            <img src="${game.ThumbnailLocation}" alt="${game.Name} Thumbnail" class="game-thumbnail">
             <h2>${game.Name}</h2>
             <p>🟢 Active Players: ${game.ActivePlayers}</p>
             <p>👁️ Total Visits: ${game.Visits.toLocaleString()}</p>
