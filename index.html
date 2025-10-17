@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Niche Modded Games</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
@@ -142,7 +140,9 @@
     }
 
     #glow {
-      
+       display: block;            /* or inline-block */
+  width: 300px;
+  filter: drop-shadow(0 0 12px rgba(0,150,255,0.8));
     }
   </style>
 </head>
@@ -157,7 +157,25 @@
     <h1>Niche Modded Games</h1>
   </header>
 
-  <section class="games" id="games"></section>
+  <section class="games" id="games"><div class="game-card">
+            <img src="assets/MOD99NightsinForest.png" alt="MOD 99 Nights in Forest Thumbnail" class="game-thumbnail">
+            <h2>MOD 99 Nights in Forest</h2>
+            <p>🟢 Active Players: 112</p>
+            <p>👁️ Total Visits: 12,450</p>
+            <a href="https://www.roblox.com/games/77466291138268/MOD-99-Nightts-in-Forest" target="_blank">Play Now →</a>
+          </div><div class="game-card">
+            <img src="assets/SANDBOX99Daysintheforest.png" alt="SANDBOX 99 Days in the Forest Thumbnail" class="game-thumbnail">
+            <h2>SANDBOX 99 Days in the Forest</h2>
+            <p>🟢 Active Players: 67</p>
+            <p>👁️ Total Visits: 8,420</p>
+            <a href="https://www.roblox.com/games/110921972710289/SANDBOX-99-Days-in-the-forest" target="_blank">Play Now →</a>
+          </div><div class="game-card">
+            <img src="assets/MODDED99NightindaForest.png" alt="MODDED 99 Night in da Forest Thumbnail" class="game-thumbnail">
+            <h2>MODDED 99 Night in da Forest</h2>
+            <p>🟢 Active Players: 231</p>
+            <p>👁️ Total Visits: 15,670</p>
+            <a href="https://www.roblox.com/games/95731763839388/MODDED-99-Night-in-da-Forest" target="_blank">Play Now →</a>
+          </div></section>
 
   <footer>
     <p>© 2025 Niche Modded Games • eeerere</p>
@@ -189,5 +207,6 @@
 
     loadGames();
   </script>
-</body>
-</html>
+
+
+</body></html>
