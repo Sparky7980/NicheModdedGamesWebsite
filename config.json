@@ -1,22 +1,23 @@
 {
+  "GroupMembers": 241, 
   "Games": [
     {
       "Name": "MOD 99 Nights in Forest",
       "Link": "https://www.roblox.com/games/77466291138268/MOD-99-Nightts-in-Forest",
-      "Visits": 12450,
-      "ActivePlayers": 112
+      "Visits": "15.2K+",
+      "Active": "12"
     },
     {
       "Name": "SANDBOX 99 Days in the Forest",
       "Link": "https://www.roblox.com/games/110921972710289/SANDBOX-99-Days-in-the-forest",
-      "Visits": 8420,
-      "ActivePlayers": 67
+      "Visits": "7.8K+",
+      "Active": "5"
     },
     {
       "Name": "MODDED 99 Night in da Forest",
       "Link": "https://www.roblox.com/games/95731763839388/MODDED-99-Night-in-da-Forest",
-      "Visits": 15670,
-      "ActivePlayers": 231
+      "Visits": "12.3K+",
+      "Active": "9"
     }
   ]
 }
