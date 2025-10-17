@@ -1,180 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Niche Modded Games</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #4B00FF, #0099FF);
+      background-color: #0f0f0f;
       color: white;
-      overflow-x: hidden;
-    }
-
-    header {
+      margin: 0;
+      padding: 0;
       text-align: center;
-      padding: 80px 20px 40px;
     }
-
     header img {
-      width: 300px;
-      max-width: 80%;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.3);
+      width: 200px;
+      margin: 30px auto;
+      display: block;
     }
-
-    section {
+    .games {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 40px;
-      padding: 60px 20px;
+      gap: 25px;
+      padding-bottom: 60px;
     }
-
     .game-card {
-      width: 90%;
-      max-width: 800px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.6s ease;
-    }
-
-    .game-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .game-card img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 15px;
-      margin-bottom: 15px;
-    }
-
-    .game-card h2 {
-      margin: 10px 0;
-      font-size: 24px;
-      color: #fff;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    .stats {
-      font-size: 18px;
-      margin-bottom: 15px;
-      color: #e0e0e0;
-    }
-
-    .play-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #ff00ff, #00ffff);
-      color: black;
-      padding: 10px 25px;
+      background: #1a1a1a;
       border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.2s ease;
+      width: 320px;
+      padding: 20px;
+      transition: transform 0.3s;
     }
-
-    .play-btn:hover {
+    .game-card:hover {
       transform: scale(1.05);
     }
-
-    @media (max-width: 600px) {
-      header img {
-        width: 220px;
-      }
-      .game-card h2 {
-        font-size: 20px;
-      }
-      .stats {
-        font-size: 16px;
-      }
+    a {
+      text-decoration: none;
+      color: #00ffcc;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="assets/NicheModdedGamesIcon.png" alt="Niche Modded Games Logo">
+    <img src="assets/NicheModdedGamesIcon.png" alt="Logo">
   </header>
 
-  <section id="games"></section>
+  <section class="games" id="games"></section>
 
   <script>
     const games = [
-      {
-        name: "MOD 99 Nightts in Forest",
-        id: "77466291138268",
-        link: "https://www.roblox.com/games/77466291138268/MOD-99-Nightts-in-Forest"
-      },
-      {
-        name: "SANDBOX 99 Days in the forest",
-        id: "110921972710289",
-        link: "https://www.roblox.com/games/110921972710289/SANDBOX-99-Days-in-the-forest"
-      },
-      {
-        name: "MODDED 99 Night in da Forest",
-        id: "95731763839388",
-        link: "https://www.roblox.com/games/95731763839388/MODDED-99-Night-in-da-Forest"
-      }
+      { name: "MOD 99 Nights in Forest", id: 77466291138268, link: "https://www.roblox.com/games/77466291138268/MOD-99-Nightts-in-Forest" },
+      { name: "SANDBOX 99 Days in the Forest", id: 110921972710289, link: "https://www.roblox.com/games/110921972710289/SANDBOX-99-Days-in-the-forest" },
+      { name: "MODDED 99 Night in da Forest", id: 95731763839388, link: "https://www.roblox.com/games/95731763839388/MODDED-99-Night-in-da-Forest" }
     ];
 
-    const gamesContainer = document.getElementById('games');
+    const container = document.getElementById('games');
 
-    async function fetchGameData(game) {
+    games.forEach(async (game) => {
       try {
-        // Use a CORS proxy to bypass Roblox API restrictions
-        const proxy = "https://corsproxy.io/?";
-        const gameApiUrl = `${proxy}https://games.roblox.com/v1/games?universeIds=${game.id}`;
-        const thumbApiUrl = `${proxy}https://thumbnails.roblox.com/v1/games/icons?universeIds=${game.id}&size=512x512&format=Png&isCircular=false`;
-
-        const res = await fetch(gameApiUrl);
+        const res = await fetch(`https://games.roproxy.com/v1/games?universeIds=${game.id}`);
         const data = await res.json();
         const info = data.data[0];
-
-        const thumbRes = await fetch(thumbApiUrl);
-        const thumbData = await thumbRes.json();
-        const thumbnail = thumbData.data[0].imageUrl;
 
         const card = document.createElement('div');
         card.className = 'game-card';
         card.innerHTML = `
-          <img src="${thumbnail}" alt="${game.name}">
           <h2>${game.name}</h2>
-          <div class="stats">🕹️ Active Players: ${info.playing.toLocaleString()}<br>👀 Total Visits: ${info.visits.toLocaleString()}</div>
-          <a class="play-btn" href="${game.link}" target="_blank">Play Game</a>
+          <p>Active Players: ${info.playing}</p>
+          <p>Total Visits: ${info.visits.toLocaleString()}</p>
+          <a href="${game.link}" target="_blank">Play Now →</a>
         `;
-        gamesContainer.appendChild(card);
-      } catch (e) {
-        console.error(e);
+        container.appendChild(card);
+      } catch (err) {
+        console.error(err);
       }
-    }
-
-    // Load all game data
-    games.forEach(fetchGameData);
-
-    // Fade-in animation
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const checkForCards = setInterval(() => {
-      document.querySelectorAll('.game-card').forEach(card => observer.observe(card));
-      if (document.querySelectorAll('.game-card').length === games.length) clearInterval(checkForCards);
-    }, 500);
+    });
   </script>
 </body>
 </html>
