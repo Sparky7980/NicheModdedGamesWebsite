@@ -4,20 +4,22 @@
       "Name": "MOD 99 Nights in Forest",
       "Link": "https://www.roblox.com/games/77466291138268/MOD-99-Nightts-in-Forest",
       "Visits": 12450,
-      "ActivePlayers": 112
+      "ActivePlayers": 112,
+      "ThumbnailLocation": "assets/MOD99NightsinForest.png"
     },
     {
       "Name": "SANDBOX 99 Days in the Forest",
       "Link": "https://www.roblox.com/games/110921972710289/SANDBOX-99-Days-in-the-forest",
       "Visits": 8420,
       "ActivePlayers": 67,
-      "ThumbnailLocation":"assets/SANDBOX99Daysintheforest.png",
+      "ThumbnailLocation": "assets/SANDBOX99Daysintheforest.png"
     },
     {
       "Name": "MODDED 99 Night in da Forest",
       "Link": "https://www.roblox.com/games/95731763839388/MODDED-99-Night-in-da-Forest",
       "Visits": 15670,
-      "ActivePlayers": 231
+      "ActivePlayers": 231,
+      "ThumbnailLocation": "assets/MODDED99NightindaForest.png"
     }
   ]
 }
