@@ -5,77 +5,139 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Niche Modded Games</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #0f0f0f;
-      color: white;
+      background: radial-gradient(circle at top, #121212, #0a0a0a);
+      color: #fff;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
       text-align: center;
     }
+
     header img {
-      width: 200px;
-      margin: 30px auto;
+      width: 220px;
+      margin: 40px auto 20px auto;
       display: block;
+      animation: fadeDown 1.5s ease;
     }
+
+    h1 {
+      font-weight: 600;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      color: #00ffcc;
+      animation: fadeDown 2s ease;
+    }
+
     .games {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 25px;
-      padding-bottom: 60px;
-    }
-    .game-card {
-      background: #1a1a1a;
-      border-radius: 12px;
-      width: 320px;
       padding: 20px;
-      transition: transform 0.3s;
+      animation: fadeUp 1.5s ease;
     }
+
+    .game-card {
+      background: linear-gradient(145deg, #1a1a1a, #111);
+      border: 1px solid #222;
+      border-radius: 15px;
+      width: 300px;
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(0,255,204,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
     .game-card:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0,255,204,0.3);
     }
-    a {
-      text-decoration: none;
+
+    .game-card h2 {
       color: #00ffcc;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .game-card p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+
+    .game-card a {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #00ffcc;
+      color: #0f0f0f;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .game-card a:hover {
+      background-color: #00e6b8;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin: 50px 0 20px 0;
+      color: #666;
+      font-size: 0.8rem;
+    }
+
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
 <body>
   <header>
     <img src="assets/NicheModdedGamesIcon.png" alt="Logo">
+    <h1>Niche Modded Games</h1>
   </header>
 
   <section class="games" id="games"></section>
 
+  <footer>
+    <p>© 2025 Niche Modded Games • Created by Aydin</p>
+  </footer>
+
   <script>
-    const games = [
-      { name: "MOD 99 Nights in Forest", id: 77466291138268, link: "https://www.roblox.com/games/77466291138268/MOD-99-Nightts-in-Forest" },
-      { name: "SANDBOX 99 Days in the Forest", id: 110921972710289, link: "https://www.roblox.com/games/110921972710289/SANDBOX-99-Days-in-the-forest" },
-      { name: "MODDED 99 Night in da Forest", id: 95731763839388, link: "https://www.roblox.com/games/95731763839388/MODDED-99-Night-in-da-Forest" }
-    ];
-
-    const container = document.getElementById('games');
-
-    games.forEach(async (game) => {
+    async function loadGames() {
       try {
-        const res = await fetch(`https://games.roproxy.com/v1/games?universeIds=${game.id}`);
-        const data = await res.json();
-        const info = data.data[0];
+        const response = await fetch('config.json');
+        const data = await response.json();
+        const container = document.getElementById('games');
 
-        const card = document.createElement('div');
-        card.className = 'game-card';
-        card.innerHTML = `
-          <h2>${game.name}</h2>
-          <p>Active Players: ${info.playing}</p>
-          <p>Total Visits: ${info.visits.toLocaleString()}</p>
-          <a href="${game.link}" target="_blank">Play Now →</a>
-        `;
-        container.appendChild(card);
+        data.Games.forEach(game => {
+          const card = document.createElement('div');
+          card.className = 'game-card';
+          card.innerHTML = `
+            <h2>${game.Name}</h2>
+            <p>Active Players: ${game.ActivePlayers}</p>
+            <p>Total Visits: ${game.Visits.toLocaleString()}</p>
+            <a href="${game.Link}" target="_blank">Play Now →</a>
+          `;
+          container.appendChild(card);
+        });
       } catch (err) {
-        console.error(err);
+        console.error('Error loading config.json:', err);
       }
-    });
+    }
+
+    loadGames();
   </script>
 </body>
 </html>
