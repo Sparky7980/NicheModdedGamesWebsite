@@ -1,11 +1,22 @@
 {
-  Game1 = {
-    Link = https://www.roblox.com/games/77466291138268/MOD-99-Nightts-in-Forest
-  },
-  Game2 = {
-    Link = https://www.roblox.com/games/110921972710289/SANDBOX-99-Days-in-the-forest
-  },
-  Game3 = {
-    Link = https://www.roblox.com/games/95731763839388/MODDED-99-Night-in-da-Forest
-  }
+  "Games": [
+    {
+      "Name": "MOD 99 Nights in Forest",
+      "Link": "https://www.roblox.com/games/77466291138268/MOD-99-Nightts-in-Forest",
+      "Visits": 12450,
+      "ActivePlayers": 112
+    },
+    {
+      "Name": "SANDBOX 99 Days in the Forest",
+      "Link": "https://www.roblox.com/games/110921972710289/SANDBOX-99-Days-in-the-forest",
+      "Visits": 8420,
+      "ActivePlayers": 67
+    },
+    {
+      "Name": "MODDED 99 Night in da Forest",
+      "Link": "https://www.roblox.com/games/95731763839388/MODDED-99-Night-in-da-Forest",
+      "Visits": 15670,
+      "ActivePlayers": 231
+    }
+  ]
 }
