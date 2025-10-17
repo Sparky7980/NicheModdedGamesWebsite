@@ -140,6 +140,12 @@
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-20px) rotate(20deg); }
     }
+
+    #glow {
+      backdrop-filter: blur(15px) saturate(3);
+      padding: 20px;
+      margin: -20px;
+    }
   </style>
 </head>
 <body>
@@ -149,7 +155,7 @@
   <div class="decor blue"></div>
 
   <header>
-    <img src="assets/NicheModdedGamesIcon.png" alt="Logo">
+    <img src="assets/NicheModdedGamesIcon.png" alt="Logo" id="glow">
     <h1>Niche Modded Games</h1>
   </header>
 
