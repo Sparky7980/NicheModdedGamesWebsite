@@ -104,6 +104,52 @@
       box-shadow: 0 0 25px rgba(150, 50, 255, 0.8);
     }
 
+    /* GROUP CARD SECTION */
+    .group-section {
+      width: 100%;
+      background: linear-gradient(145deg, rgba(30, 0, 60, 0.9), rgba(15, 0, 35, 0.95));
+      border-top: 2px solid rgba(120, 50, 255, 0.4);
+      border-bottom: 2px solid rgba(120, 50, 255, 0.4);
+      box-shadow: 0 0 30px rgba(100, 0, 255, 0.3), inset 0 0 15px rgba(0, 255, 255, 0.15);
+      padding: 30px 0;
+      margin-top: 60px;
+      backdrop-filter: blur(5px);
+      animation: fadeUp 1.5s ease;
+    }
+
+    .group-section h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+
+    .group-section p {
+      font-size: 1rem;
+      color: #c9c9c9;
+      margin: 6px 0;
+    }
+
+    .group-section a {
+      display: inline-block;
+      margin-top: 12px;
+      background: linear-gradient(90deg, #38b6ff, #9b5cff);
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(100, 0, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .group-section a:hover {
+      background: linear-gradient(90deg, #9b5cff, #38b6ff);
+      transform: scale(1.06);
+      box-shadow: 0 0 25px rgba(150, 50, 255, 0.8);
+    }
+
     footer {
       margin: 60px 0 20px 0;
       color: #999;
@@ -120,6 +166,7 @@
       from {opacity: 0; transform: translateY(-25px);}
       to {opacity: 1; transform: translateY(0);}
     }
+
     .decor {
       position: absolute;
       width: 12px;
@@ -140,9 +187,9 @@
     }
 
     #glow {
-       display: block;            /* or inline-block */
-  width: 300px;
-  filter: drop-shadow(0 0 120px rgba(0,150,255,0.8));
+      display: block;
+      width: 300px;
+      filter: drop-shadow(0 0 120px rgba(0,150,255,0.8));
     }
   </style>
 </head>
@@ -157,8 +204,14 @@
     <h1>Niche Modded Games</h1>
   </header>
 
-  <section class="games" id="games">
-            </section>
+  <section class="games" id="games"></section>
+
+  <!-- 🟣 New Group Section -->
+  <section class="group-section" id="group-section">
+    <h2>Join the Official Group!</h2>
+    <p>👥 Members: <span id="group-count">12,345</span></p>
+    <a href="https://www.roblox.com/communities/143008222/Niche-Modded-Games#!/about" target="_blank">Visit Group →</a>
+  </section>
 
   <footer>
     <p>© 2025 Niche Modded Games • eeerere</p>
@@ -190,7 +243,5 @@
 
     loadGames();
   </script>
-
-
 
 </body></html>
