@@ -88,6 +88,18 @@
     .play-btn:hover {
       transform: scale(1.05);
     }
+
+    @media (max-width: 600px) {
+      header img {
+        width: 220px;
+      }
+      .game-card h2 {
+        font-size: 20px;
+      }
+      .stats {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -120,11 +132,16 @@
 
     async function fetchGameData(game) {
       try {
-        const res = await fetch(`https://games.roblox.com/v1/games?universeIds=${game.id}`);
+        // Use a CORS proxy to bypass Roblox API restrictions
+        const proxy = "https://corsproxy.io/?";
+        const gameApiUrl = `${proxy}https://games.roblox.com/v1/games?universeIds=${game.id}`;
+        const thumbApiUrl = `${proxy}https://thumbnails.roblox.com/v1/games/icons?universeIds=${game.id}&size=512x512&format=Png&isCircular=false`;
+
+        const res = await fetch(gameApiUrl);
         const data = await res.json();
         const info = data.data[0];
 
-        const thumbRes = await fetch(`https://thumbnails.roblox.com/v1/games/icons?universeIds=${game.id}&size=512x512&format=Png&isCircular=false`);
+        const thumbRes = await fetch(thumbApiUrl);
         const thumbData = await thumbRes.json();
         const thumbnail = thumbData.data[0].imageUrl;
 
@@ -142,10 +159,10 @@
       }
     }
 
-    // Load game data
+    // Load all game data
     games.forEach(fetchGameData);
 
-    // Scroll animation
+    // Fade-in animation
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
