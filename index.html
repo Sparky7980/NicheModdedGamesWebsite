@@ -23,7 +23,9 @@
       display: block;
       image-rendering: high-quality;
       filter: drop-shadow(0 0 12px rgba(150, 100, 255, 0.4));
-      animation: fadeDown 1.5s ease;
+      animation: fadeDown 1.5s ease, logoFloat 5s ease-in-out infinite;
+      z-index: 2;
+      position: relative;
     }
 
     h1 {
@@ -34,6 +36,8 @@
       margin-bottom: 40px;
       animation: fadeDown 2s ease;
       text-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+      position: relative;
+      z-index: 2;
     }
 
     .games {
@@ -43,6 +47,8 @@
       gap: 30px;
       padding: 20px;
       animation: fadeUp 1.5s ease;
+      position: relative;
+      z-index: 2;
     }
 
     .game-card {
@@ -168,6 +174,11 @@
       to {opacity: 1; transform: translateY(0);}
     }
 
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
     .decor {
       position: absolute;
       opacity: 0.7;
@@ -210,7 +221,7 @@
 
   <script>
     const colors = ['#fefb52', '#57ff87', '#ff59c7', '#4deaff', '#b266ff'];
-    const numDots = 40; // number of floating squares
+    const numDots = 30; 
 
     for (let i = 0; i < numDots; i++) {
       const dot = document.createElement('div');
