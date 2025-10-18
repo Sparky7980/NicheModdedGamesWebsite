@@ -13,6 +13,8 @@
       padding: 0;
       text-align: center;
       overflow-x: hidden;
+      position: relative;
+      height: 100%;
     }
 
     header img {
@@ -168,18 +170,12 @@
 
     .decor {
       position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 3px;
-      opacity: 0.6;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      opacity: 0.7;
       animation: float 6s infinite ease-in-out;
     }
-
-    .decor.yellow { background: #fefb52; top: 15%; left: 12%; animation-delay: 0s; }
-    .decor.green { background: #57ff87; top: 25%; right: 18%; animation-delay: 1s; }
-    .decor.pink { background: #ff59c7; bottom: 20%; left: 10%; animation-delay: 2s; }
-    .decor.blue { background: #4deaff; bottom: 15%; right: 15%; animation-delay: 3s; }
-    .decor.purple {background:#4B0082; bottom: 35%; right: 45%; animation-delay: 2.5s;}
 
     @keyframes float {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -194,11 +190,22 @@
   </style>
 </head>
 <body>
-  <div class="decor yellow"></div>
-  <div class="decor green"></div>
-  <div class="decor pink"></div>
-  <div class="decor blue"></div>
-  <div class="decor purple"></div>
+  <script>
+    const colors = ['#fefb52', '#57ff87', '#ff59c7', '#4deaff', '#b266ff'];
+    const numDots = 30; // increased for more floating dots
+
+    for (let i = 0; i < numDots; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'decor';
+      dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+      dot.style.top = Math.random() * 100 + '%';
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
+      dot.style.width = (6 + Math.random() * 10) + 'px';
+      dot.style.height = dot.style.width;
+      document.body.appendChild(dot);
+    }
+  </script>
 
   <header>
     <img src="assets/NicheModdedGamesIcon.png" alt="Logo" id="glow">
@@ -243,5 +250,4 @@
 
     loadGames();
   </script>
-
 </body></html>
