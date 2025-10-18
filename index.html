@@ -170,11 +170,9 @@
 
     .decor {
       position: absolute;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
       opacity: 0.7;
       animation: float 6s infinite ease-in-out;
+      z-index: 0;
     }
 
     @keyframes float {
@@ -186,26 +184,12 @@
       display: block;
       width: 300px;
       filter: drop-shadow(0 0 120px rgba(0,150,255,0.8));
+      position: relative;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
-  <script>
-    const colors = ['#fefb52', '#57ff87', '#ff59c7', '#4deaff', '#b266ff'];
-    const numDots = 30; // increased for more floating dots
-
-    for (let i = 0; i < numDots; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'decor';
-      dot.style.background = colors[Math.floor(Math.random() * colors.length)];
-      dot.style.top = Math.random() * 100 + '%';
-      dot.style.left = Math.random() * 100 + '%';
-      dot.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
-      dot.style.width = (6 + Math.random() * 10) + 'px';
-      dot.style.height = dot.style.width;
-      document.body.appendChild(dot);
-    }
-  </script>
 
   <header>
     <img src="assets/NicheModdedGamesIcon.png" alt="Logo" id="glow">
@@ -224,6 +208,28 @@
     <p>© 2025 Niche Modded Games • eeerere</p>
   </footer>
 
+  <!-- Floating squared decor generator -->
+  <script>
+    const colors = ['#fefb52', '#57ff87', '#ff59c7', '#4deaff', '#b266ff'];
+    const numDots = 40; // number of floating squares
+
+    for (let i = 0; i < numDots; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'decor';
+      dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+      dot.style.top = Math.random() * 100 + '%';
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
+      dot.style.width = (8 + Math.random() * 10) + 'px';
+      dot.style.height = dot.style.width;
+      dot.style.borderRadius = '3px';
+      dot.style.boxShadow = `0 0 ${6 + Math.random() * 10}px ${colors[Math.floor(Math.random() * colors.length)]}`;
+      dot.style.opacity = 0.6;
+      document.body.appendChild(dot);
+    }
+  </script>
+
+  <!-- Game loader -->
   <script>
     async function loadGames() {
       try {
@@ -250,4 +256,5 @@
 
     loadGames();
   </script>
+
 </body></html>
